@@ -55,7 +55,12 @@ def top5_countries_by_date(day: int, month: int, year: int = 2020) -> List[str]:
     """
 
     # Your code goes here (remove pass)
-    pass
+    def Top5CountriesByDate(day: int, month: int, year: int = 2020) -> List[str]:
+      data = f"{month}/{day}/{year - 2000}"
+      grouped_cases=confirmed_cases.groupby(["Country/Region"]).max()
+      sorted_cases=grouped_cases.sort_values(by=data, ascending=False).head(5)
+      a=sorted_cases.index.values.tolist()
+      return a
 
 # Function name is wrong, read the pydoc
 def no_new_cases_count(day: int, month: int, year: int = 2020) -> int:
