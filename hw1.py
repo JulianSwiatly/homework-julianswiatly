@@ -77,5 +77,3 @@ def no_new_cases_count(day: int, month: int, year: int = 2020) -> int:
     date2 = datetime.date(year, month, day) + datetime.timedelta(days=-1)
     date2 = date2.strftime('%-m/%-d/%-y')
     return len(confirmed_cases.loc[confirmed_cases[date2] != confirmed_cases[date1]])
-
-no_new_cases_count(10, 3, 20)
