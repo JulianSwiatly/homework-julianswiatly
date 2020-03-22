@@ -70,6 +70,7 @@ def no_new_cases_count(day: int, month: int, year: int = 2020) -> int:
     """
     
     # Your code goes here (remove pass)
+    pass
   CONFIRMED_CASES_URL = f"https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv"
     confirmed_cases = pd.read_csv(CONFIRMED_CASES_URL, error_bad_lines=False)
     date = datetime.date(year, month, day)
