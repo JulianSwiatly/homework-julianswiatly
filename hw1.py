@@ -70,4 +70,12 @@ def no_new_cases_count(day: int, month: int, year: int = 2020) -> int:
     """
     
     # Your code goes here (remove pass)
-    pass
+  CONFIRMED_CASES_URL = f"https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv"
+    confirmed_cases = pd.read_csv(CONFIRMED_CASES_URL, error_bad_lines=False)
+    date = datetime.date(year, month, day)
+    date1 = datetime.date(year, month, day).strftime('%-m/%-d/%-y')
+    date2 = datetime.date(year, month, day) + datetime.timedelta(days=-1)
+    date2 = date2.strftime('%-m/%-d/%-y')
+    return len(confirmed_cases.loc[confirmed_cases[date2] != confirmed_cases[date1]])
+
+no_new_cases_count(10, 3, 20)
